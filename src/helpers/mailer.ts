@@ -40,7 +40,9 @@ export const sendEmail = async ({ email, emailType, userId }: any) => {
       subject: emailType === "VERIFY" ? "Verify your email" : "Reset Password",
       html: `<p>Click <a href="${link}">here</a> to ${
         emailType === "VERIFY" ? "Verify your Email" : "Reset your Password"
-      }</p>`,
+      }</p>
+      <div>Or copy paste this</div>
+      <div>${link}</div>`,
     };
     const mailResponse = await transport.sendMail(mailOptions);
     return mailResponse;
